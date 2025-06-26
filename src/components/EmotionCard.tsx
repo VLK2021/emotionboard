@@ -1,9 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
+import { motion } from "framer-motion";
 
 import { Emotion } from "@/stores/EmotionStore";
 import { EMOTION_LIST } from "@/utils/emotions";
-import { motion } from "framer-motion";
 
 
 interface Props {
