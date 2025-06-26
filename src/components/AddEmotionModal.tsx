@@ -1,19 +1,21 @@
-import React, { useState } from "react";
-import { observer } from "mobx-react-lite";
+import React, {useState} from "react";
+import {observer} from "mobx-react-lite";
 
 import {emotionStore, EmotionType} from "@/stores/EmotionStore";
 import {EMOTION_LIST} from "@/utils/emotions";
+
 
 interface Props {
     open: boolean;
     onClose: () => void;
 }
 
-export const AddEmotionModal: React.FC<Props> = observer(({ open, onClose }) => {
+export const AddEmotionModal: React.FC<Props> = observer(({open, onClose}) => {
     const [type, setType] = useState<EmotionType>("Радість");
     const [comment, setComment] = useState("");
 
     if (!open) return null;
+
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
@@ -31,6 +33,7 @@ export const AddEmotionModal: React.FC<Props> = observer(({ open, onClose }) => 
                         ))}
                     </select>
                 </div>
+
                 <div className="mb-3">
                     <label className="block mb-2 font-bold">Коментар</label>
                     <input
@@ -41,12 +44,13 @@ export const AddEmotionModal: React.FC<Props> = observer(({ open, onClose }) => 
                         onChange={e => setComment(e.target.value)}
                     />
                 </div>
+
                 <div className="flex gap-2 mt-4">
                     <button
                         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
                         onClick={() => {
                             if (!comment.trim()) return;
-                            emotionStore.addEmotion({ type, comment });
+                            emotionStore.addEmotion({type, comment});
                             setType("Радість");
                             setComment("");
                             onClose();

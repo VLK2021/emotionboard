@@ -1,6 +1,7 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable} from "mobx";
 
 export type EmotionType = "Радість" | "Смуток" | "Злість" | "Подив" | "Спокій" | "Страх" | "Відраза";
+
 
 export interface Emotion {
     id: string;
@@ -8,6 +9,7 @@ export interface Emotion {
     comment: string;
     createdAt: string;
 }
+
 
 class EmotionStore {
     emotions: Emotion[] = [];

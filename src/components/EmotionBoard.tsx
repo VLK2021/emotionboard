@@ -4,13 +4,14 @@ import { observer } from "mobx-react-lite";
 import { EmotionCard } from "./EmotionCard";
 import {emotionStore} from "@/stores/EmotionStore";
 
+
 export const EmotionBoard: React.FC = observer(() => {
     const [dragged, setDragged] = useState<number | null>(null);
 
-    // Адаптивно — простий варіант (без useMediaQuery, працює як grid/column)
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
     const handleDragStart = (idx: number) => () => setDragged(idx);
+
     const handleDragOver = (idx: number) => (e: React.DragEvent) => {
         e.preventDefault();
         if (dragged !== null && dragged !== idx) {
@@ -18,6 +19,7 @@ export const EmotionBoard: React.FC = observer(() => {
             setDragged(idx);
         }
     };
+
 
     return (
         <div className={isMobile

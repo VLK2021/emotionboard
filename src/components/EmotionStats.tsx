@@ -4,12 +4,14 @@ import { observer } from "mobx-react-lite";
 import {emotionStore} from "@/stores/EmotionStore";
 import {EMOTION_LIST} from "@/utils/emotions";
 
+
 const periodOptions = [
     { label: "Сьогодні", value: "today" },
     { label: "Тиждень", value: "week" },
     { label: "Місяць", value: "month" },
     { label: "Весь час", value: "all" },
 ];
+
 
 function filterByPeriod(period: string) {
     const now = new Date();

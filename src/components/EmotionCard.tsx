@@ -36,7 +36,9 @@ export const EmotionCard: React.FC<Props> = observer(({ emotion, onRemove, ...dr
                     <span className="text-2xl">{emotionMeta?.icon}</span>
                     <span className="font-bold">{emotion.type}</span>
                 </div>
+
                 <div className="text-sm">{emotion.comment}</div>
+
                 <button
                     className="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xs"
                     onClick={onRemove}
